@@ -1,0 +1,19 @@
+#!/usr/bin/bash
+
+# Compare current running kernel with latest installed version
+#
+# Example usage:
+#
+#       /usr/local/bin/kernel-uptodate.sh || /usr/sbin/reboot
+
+
+CURRENT="kernel-$(uname -r)"
+LATEST="$(rpm -q --last kernel | head -1 | awk '{print $1}')"
+
+if [ $CURRENT == $LATEST ]; then
+  printf "$CURRENT up to date\n"
+  exit 0
+else
+  printf "$CURRENT running\n$LATEST available\n"
+  exit 1
+fi
