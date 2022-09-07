@@ -13,3 +13,5 @@ Better place for logs (and rotate them)
 Put this all in an RPM
 
 Compare to how cloud OS does this check at login
+
+Generalise for different distributions
